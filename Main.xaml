@@ -219,7 +219,7 @@
               </Assign.Value>
             </Assign>
             <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,117" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[$&quot;Invoice: {invoiceNo}{Environment.NewLine}Supplier: {supplier}{Environment.NewLine}Date: {invDate}{Environment.NewLine}Amount: {amount}&quot;]" />
-            <If Condition="[vendorTable.AsEnumerable().Any(Function(row) row(&quot;Supplier Name&quot;).ToString.Trim = supplier.Trim)]" sap:VirtualizedContainerService.HintSize="434,613" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[vendorTable.AsEnumerable().Any(Function(row) row(&quot;Supplier Name&quot;).ToString.Trim = supplier.Trim) = true OR string.IsNullOrEmpty(amount) = false OR string.IsNullOrEmpty(invDate) = false OR string.IsNullOrEmpty(invoiceNo) = false]" sap:VirtualizedContainerService.HintSize="434,613" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,242" sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>
